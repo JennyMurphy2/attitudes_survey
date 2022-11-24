@@ -1,2 +1,3 @@
-# attitudes_survey
-R code and data for the survey on the attitudes towards and perception of reproducibility and replicability in sports and exercise science
+A Survey on the Attitudes Towards and Perception of Reproducibility and Replicability in Sports and Exercise Science
+
+R code and data for the above titled survey on. 
