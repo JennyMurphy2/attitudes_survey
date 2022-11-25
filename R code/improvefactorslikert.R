@@ -91,15 +91,17 @@ plot(results) +
     axis.title.x = element_text(face="bold"),
     axis.text.y = element_text(size=10, face="bold")
     ) +
+  scale_y_continuous(name = "Percentage (%)",
+                     labels = abs, limits = c(-110, 110)) +
   scale_x_discrete(labels = wrap_format(30))
 
 ## Save plot ------------------------------------------------------------------------------------------------------------------
 
-ggsave("likelyfactors14July.png",
+ggsave("likelyfactorslikert.png",
        plot = last_plot(),
        device = "png",
-       width = NA,
-       height = NA,
-       dpi = 300,
-       limitsize = TRUE
+       width = 8.5,
+       height = 7,
+       units = "in",
+       dpi = 300
 )

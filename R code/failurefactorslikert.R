@@ -107,11 +107,10 @@ results <- likert(as.data.frame(likdata2))
 plot(results, center = 4, wrap = 20) +
   theme(
     axis.text.y = element_text(size=10, face="bold"),
-    axis.title.x = element_text(face="bold"),
-    axis.text.x = element_blank()
+    axis.title.x = element_text(face="bold")
 ) +
   scale_y_continuous(name = "Percentage (%)",
-                     limits = c(-110, 110)) +
+                     labels = abs, limits = c(-110, 110)) +
 scale_x_discrete(labels = wrap_format(30)) 
   
 

@@ -44,14 +44,16 @@ published_results_perc <- overalldata %>%
   count() %>%
   ungroup() %>%
   mutate(percent = (n/sum(n)*100)) %>%
-  mutate_if(is.numeric, round)
+  mutate_if(is.numeric, round) %>%
+  drop_na()
 
 published_results_perc <- 
   renameddata %>%
   select(published_results) %>%
   count(published_results = factor(published_results)) %>% 
   mutate(pct = prop.table(n)) %>%
-  arrange(match(published_results, c("Very likely", "Fairly likely", "Somewhat likely", "Neither likely nor unlikely", "Somewhat unlikely", "Fairly unlikely", "Very unlikely")))
+  arrange(match(published_results, c("Very likely", "Fairly likely", "Somewhat likely", "Neither likely nor unlikely", "Somewhat unlikely", "Fairly unlikely", "Very unlikely"))) %>%
+  drop_na()
 
 
 ## Level of rep percentage ------------------------------------------------------------------------------------------------
