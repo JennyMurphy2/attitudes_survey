@@ -105,20 +105,23 @@ results <- likert(as.data.frame(likdata2))
 #likert.options(plot.percent.neutral = TRUE)
 
 plot(results, center = 4, wrap = 20) +
-#  ggtitle("Factors contributing to a failure to replicate") +
   theme(
     axis.text.y = element_text(size=10, face="bold"),
     axis.title.x = element_text(face="bold"),
+    axis.text.x = element_blank()
 ) +
-scale_x_discrete(labels = wrap_format(30))
+  scale_y_continuous(name = "Percentage (%)",
+                     limits = c(-110, 110)) +
+scale_x_discrete(labels = wrap_format(30)) 
+  
 
 ## Save plot ------------------------------------------------------------------------------------------------------------------
 
-ggsave("failurefactors14July.png",
+ggsave("failurefactorslikert.png",
        plot = last_plot(),
        device = "png",
-       width = NA,
-       height = NA,
-       dpi = 300,
-       limitsize = TRUE
+       width = 8.3,
+       height = 7,
+       units = "in",
+       dpi = 300
 )
