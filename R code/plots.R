@@ -8,7 +8,7 @@ if(!require(reshape2))install.packages("reshape2")
 # Graph settings ----------------------------------------------------------------------------------------------------------
 #setting theme for all graphs
 
-theme_set(theme_minimal())
+theme_set(theme_bw())
   
 # Crisis percent plot ---------------------------------------------------------------------------------------------------
 
@@ -35,11 +35,12 @@ theme_set(theme_minimal())
   scale_fill_viridis_d(option = "E")
 
 
-ggsave("percentcrisis25NOV.png",
+ggsave("percentcrisis.png",
   plot = last_plot(),
   device = "png",
-  width = NA,
-  height = NA,
+  units = "mm",
+  width = 200,
+  height = 160,
   dpi = 300,
   limitsize = TRUE
 )
@@ -58,7 +59,6 @@ published_results_perc %>%
   scale_y_continuous(name = "Percentage (%)", labels = scales::percent, expand = expansion(mult = c(0, .1))) +
   scale_x_discrete(name = "",
                    labels = wrap_format(10)) +
- theme_minimal() +
   theme(axis.text.x = element_text(hjust = 0.5, size=12, face="bold"),
         axis.title.y = element_text(vjust = 2, size=12, face="bold"),
         axis.text.y = element_text(size=10, face="bold"),
@@ -71,12 +71,12 @@ published_results_perc %>%
         panel.border = element_rect(color = "grey", fill = NA, size = 2)) +
   scale_fill_viridis_d(option = "E")
 
-ggsave("publishedresults25NOV.png",
+ggsave("publishedresults.png",
        plot = last_plot(),
        device = "png",
-       width = NA,
-       height = 6.15,
-       units = "in",
+       units = "mm",
+       width = 200,
+       height = 160,
        dpi = 300,
        limitsize = TRUE
 )
@@ -93,7 +93,6 @@ level_rep_perc %>%
   scale_y_continuous(name = "Percentage (%)", labels = scales::percent, expand = expansion(mult = c(0, .1))) +
   scale_x_discrete(name = "",
                    labels = c("Same", "Better" , "Worse", "Unsure", "Unanswered")) +
-  theme_minimal() +
   theme(axis.text.x = element_text(hjust = 0.5, size=12, face="bold"),
         axis.title.y = element_text(vjust = 2, size=12, face="bold"),
         axis.text.y = element_text(size=10, face="bold"),
@@ -107,17 +106,17 @@ level_rep_perc %>%
 ) +
   scale_fill_viridis_d(option = "E")
 
-ggsave("levelrep25NOV.png",
+ggsave("levelrep.png",
        plot = last_plot(),
        device = "png",
-       width = NA,
-       height = NA,
-       units = "in",
+       units = "mm",
+       width = 200,
+       height = 160,
        dpi = 300,
        limitsize = TRUE
 )
 
-## Major problem in my field/all fields ----------------------------------------
+# Major problem in my field/all fields ----------------------------------------
 # Survey question: "I think that the failure to reproduce or replicate scientific studies is a major problem in my field"
 # Survey question: "I think that the failure to reproduce or replicate scientific studies is a major problem for all fields"
 
@@ -150,7 +149,6 @@ major_data_perc %>%
   scale_y_continuous(name = "Percentage (%)", labels = scales::percent) +
   scale_x_discrete(name = "", limits = major_data_responses, labels = wrap_format(10)) +
   labs(fill = "") +
-  theme_minimal() +
   theme(panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         panel.grid.major.y = element_blank(),
@@ -165,11 +163,12 @@ major_data_perc %>%
 ) +
   scale_fill_viridis_d(option = "C")
 
-ggsave("majorproblem25NOV.png",
+ggsave("majorproblem.png",
        plot = last_plot(),
        device = "png",
-       width = NA,
-       height = NA,
+       units = "mm",
+       width = 250,
+       height = 210,
        dpi = 300,
        limitsize = TRUE
 )
@@ -206,7 +205,6 @@ funder_dat_perc %>%
   scale_y_continuous(name = "Percentage (%)", labels = scales::percent) +
   scale_x_discrete(name = "", limits = funder_dat_responses, labels = wrap_format(10)) +
   labs(fill = "", labels = wrap_format(10)) +
-  theme_minimal() +
   theme(panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         panel.grid.major.y = element_blank(),
@@ -221,11 +219,12 @@ funder_dat_perc %>%
 ) +
   scale_fill_viridis_d(option = "C") 
 
-ggsave("fundereffort25NOV.png",
+ggsave("fundereffort.png",
        plot = last_plot(),
        device = "png",
-       width = NA,
-       height = NA,
+       units = "mm",
+       width = 200,
+       height = 160,
        dpi = 300,
        limitsize = TRUE
 )
@@ -261,7 +260,6 @@ journal_dat_perc %>%
   scale_y_continuous(name = "Percentage (%)", labels = scales::percent) +
   scale_x_discrete(name = "", limits = journal_dat_responses, labels = wrap_format(10)) +
   labs(fill = "", labels = wrap_format(10)) +
-  theme_minimal() +
   theme(panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         panel.grid.major.y = element_blank(),
@@ -276,11 +274,12 @@ journal_dat_perc %>%
         panel.border = element_rect(color = "grey", fill = NA, size = 2)) +
   scale_fill_viridis_d(option = "C") 
 
-ggsave("journaleffort25NOV.png",
+ggsave("journaleffort.png",
        plot = last_plot(),
        device = "png",
-       width = NA,
-       height = NA,
+       units = "mm",
+       width = 200,
+       height = 160,
        dpi = 300,
        limitsize = TRUE
 )
@@ -316,7 +315,6 @@ fail_data_perc %>%
   scale_y_continuous(name = "Percentage (%)", labels = scales::percent) +
   scale_x_discrete(name = "", limits = fail_data_responses, labels = wrap_format(10)) +
   labs(fill = "", labels = wrap_format(10)) +
-  theme_minimal() +
   theme(panel.grid.major.x = element_blank(),
         panel.grid.minor.x = element_blank(),
         panel.grid.major.y = element_blank(),
@@ -330,11 +328,12 @@ fail_data_perc %>%
   ) +
   scale_fill_viridis_d(option = "C")
 
-ggsave("failedmeaning25NOV.png",
+ggsave("failedmeaning.png",
        plot = last_plot(),
        device = "png",
-       width = NA,
-       height = NA,
+       units = "mm",
+       width = 250,
+       height = 210,
        dpi = 300,
        limitsize = TRUE
 )
