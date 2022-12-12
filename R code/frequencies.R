@@ -298,3 +298,28 @@ renameddata %>%
   mutate(percent = (n/sum(n)*100)) %>%
   mutate_if(is.numeric, round) %>%
   drop_na()
+
+#Age frequencies ------------------------------------------------------------------------------
+
+age_data <- 
+  renameddata %>%
+  group_by(age) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(percent = (n/sum(n)*100))%>%
+  mutate_if(is.numeric, round, (digits = 0)) %>%
+  drop_na()
+
+#Frequencies job title ------------------------------------------------------------------------------
+
+job_title <- renameddata %>%
+  group_by(job_title) %>%
+  count() %>%
+  ungroup() %>%
+  mutate(percent = (n/sum(n)*100)) %>%
+  mutate_if(is.numeric, round, (digits = 2)) %>%
+  arrange(desc(percent)) %>%
+  drop_na()
+
+# remove "x" row
+job_title <- job_title[-c(42), ]
