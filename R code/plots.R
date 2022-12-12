@@ -157,7 +157,7 @@ major_data_perc %>%
         axis.title.y = element_text(vjust = 2, size=12, face="bold"),
         axis.text.y = element_text(size=10, face="bold"),
         legend.justification = c(1, 1), 
-        legend.position = c(0.95, 1),
+        legend.position = c(0.95, 0.95),
         legend.text = element_text(size = 12),
         panel.border = element_rect(color = "grey", fill = NA, size = 2)
 ) +
